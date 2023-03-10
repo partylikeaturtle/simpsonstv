@@ -10,9 +10,10 @@ videos = []
 def getVideos():
     global videos
     videos = []
-    for file in os.listdir(directory):
-        if file.lower().endswith('.mp4'):
-            videos.append(os.path.join(directory, file))
+    files = [f for f in os.listdir(directory) if f.lower().endswith('.mp4')]
+    files.sort()  # sort files alphabetically
+    for file in files:
+        videos.append(os.path.join(directory, file))
 
 
 def playVideos():
